@@ -1,0 +1,236 @@
+:root {
+    --rojo: #ffffff;
+    --fondo: #099d8d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+
+}
+
+header {
+    padding: 30px 0;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logotipo {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--rojo);
+    font-size: 40px;
+}
+
+header nav a {
+    color: #AAA;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo {
+    color:#fff;
+}
+
+/*--- --- Película Principal --- --- */
+
+.pe-principal {
+    font-size: 16px;
+    min-height: 40.62em;
+    color:#fff;
+    background: linear-gradient(rgba(0, 0, 0, .50), rgba(0, 0, 0, .50)), url(../img/technology-1283624_1920.jpg);
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: flex-end;
+}
+
+.pe-principal .contenedor {
+    margin: 0 auto;
+    margin-bottom: 6.25em;
+}
+
+.pe-principal .titulo {
+    font-weight: 600;
+    font-size: 3.12em;
+    margin-bottom: 0.4em;
+}
+
+.pe-principal .descripcion {
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+}
+
+.pe-principal .boton {
+    background: rgba(0, 0, 0, .50);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 1.87em;
+    color:#fff;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.12em;
+}
+
+.pe-principal .boton:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.pe-principal .boton i {
+    margin-right: 1.25em;
+}
+
+/*--- --- Contenedor título y controles --- ---*/
+.contenedor-titulo-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.contenedor-titulo-controles h3 {
+    color:#fff;
+    font-size: 30px;
+}
+
+.contenedor-titulo-controles .indicadores button {
+    background: #fff;
+    height: 3px;
+    width: 10px;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+    background: red;
+}
+
+/*--- --- Contenedor principal y flechas --- ---*/
+
+.pe-destacados {
+    margin-bottom: 70px;
+}
+
+.pe-destacados .contenedor-principal {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.pe-destacados .contenedor-principal .flecha-izquierda,
+.pe-destacados .contenedor-principal .flecha-derecha {
+    position: absolute;
+    border: none;
+    background: rgba(0, 0, 0, .30);
+    font-size: 40px;
+    height: 50%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 500;
+    transition: .2s ease all;
+}
+
+.pe-destacados .contenedor-principal .flecha-izquierda:hover,
+.pe-destacados .contenedor-principal .flecha-derecha:hover {
+    background: rgba(0, 0, 0, .90);
+}
+
+.pe-destacados.contenedor-principal .flecha-izquierda {
+    left: 0;
+}
+
+.pe-destacados .contenedor-principal .flecha-derecha {
+    right: 0;
+}
+
+/*--- --- Carousel --- ---*/
+.pe-destacados .contenedor-carousel {
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.pe-destacados .contenedor-carousel .carousel {
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+.pe-destacados .contenedor-carousel .carousel .rectangulo {
+    min-width: 20%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .30);
+}
+
+.pe-destacados .contenedor-carousel .carousel .rectangulo.hover {
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.pe-destacados .contenedor-carousel .carousel .rectangulo img {
+    width: 100%;
+    vertical-align: top;
+
+}
+
+/*--- --- Media queries --- ---*/
+
+@media screen and (max-width: 800px) {
+    header .logotipo {
+        margin-bottom: 1opx;
+        font-size: 30px;
+    }
+
+    header .contenedor {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pe-principal {
+        font-size: 14px;
+    }
+    .pe-principal .descripcion {
+        max-width: 100%;
+    }
+    .pe-destacados .contenedor-carousel {
+        overflow: visible;
+    }
+    .pe-destacados .contenedor-carousel .carousel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .pe-destacados .indicadores,
+    .pe-destacados .flecha-izquierda,
+    .pe-destacados .flecha-derecha {
+        display: none;
+    }
+}
